@@ -102,6 +102,7 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
                   children: [
                     TextFormField(
                       controller: _titleController,
+
                       decoration: const InputDecoration(
                         labelText: "Titolo",
                         labelStyle: TextStyle(
@@ -116,6 +117,7 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
                     ),
                     TextFormField(
                       controller: _directorController,
+
                       decoration: const InputDecoration(
                         labelText: "Regista",
                         labelStyle: TextStyle(
@@ -130,6 +132,7 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
                     ),
                     TextFormField(
                       controller: _durationController,
+
                       decoration: const InputDecoration(
                         labelText: "Durata",
                         labelStyle: TextStyle(
@@ -146,6 +149,7 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
                     ),
                     TextFormField(
                       controller: _plotController,
+
                       decoration: const InputDecoration(
                         labelText: "Trama",
                         labelStyle: TextStyle(
@@ -160,6 +164,7 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
                     ),
                     TextFormField(
                       controller: _yearController,
+                      
                       decoration: const InputDecoration(
                         labelText: "Anno",
                         labelStyle: TextStyle(
@@ -182,6 +187,9 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
         ),
       ),
       actions: [
+
+
+        // tasto annulla
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
           child: const Text('Annulla',
@@ -192,6 +200,8 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
           ),
           ),
         ),
+
+        // tasto salva
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.rose,

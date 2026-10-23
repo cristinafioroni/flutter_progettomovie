@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../core/theme/app_colors.dart';
 import 'components/movie_form_dialog.dart';
+import 'components/movie_list_widget.dart';
 
 import '../viewmodels/movie_view_model.dart';
 
@@ -38,7 +39,7 @@ class HomeView extends StatelessWidget {
               ),
             );
           }
-          return const Text('sostituire con lista film');
+          return MovieListWidget();
         },
       ),
       floatingActionButton: FloatingActionButton(
