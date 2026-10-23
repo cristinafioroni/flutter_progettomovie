@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../core/theme/app_colors.dart';
 import 'components/movie_form_dialog.dart';
 
 import '../viewmodels/movie_view_model.dart';
@@ -16,9 +17,9 @@ class HomeView extends StatelessWidget {
     });
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 251, 214),
+      backgroundColor: AppColors.cream,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 251, 214),
+        backgroundColor: AppColors.cream,
         centerTitle: true,
         title: Image.asset('assets/images/movie_nights.png', height: 60),
       ),
@@ -41,8 +42,8 @@ class HomeView extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromRGBO(240, 41, 50, 1),
-        foregroundColor: Colors.white,
+        backgroundColor: AppColors.bordeaux,
+        foregroundColor: AppColors.ivory,
         onPressed: () {
           showDialog(context: context, builder: (_) => const MovieFormDialog());
         },

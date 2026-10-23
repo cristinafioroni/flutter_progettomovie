@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 
 import '../../models/movie.dart';
 import '../../viewmodels/movie_view_model.dart';
+import '../../core/theme/app_colors.dart';
 
 class MovieFormDialog extends StatefulWidget {
   final Movie? movie;
@@ -70,6 +72,141 @@ class _MovieFormDialogState extends State<MovieFormDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AlertDialog(
+      backgroundColor: AppColors.bordeaux,
+
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+
+      title: Text(
+        widget.movie == null ? 'Aggiungi Film' : 'Modifica Film',
+        style: const TextStyle(
+          fontFamily: 'Allura',
+          fontSize: 40,
+          color: AppColors.cream,
+        ),
+      ),
+
+      content: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              // parte interna del modulo con i campi di input
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: AppColors.cream,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: _titleController,
+                      decoration: const InputDecoration(
+                        labelText: "Titolo",
+                        labelStyle: TextStyle(
+                          fontFamily: 'Outfit',
+                          fontSize: 16,
+                          color: AppColors.bordeaux,
+                        ),
+                      ),
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Campo obbligatorio'
+                          : null,
+                    ),
+                    TextFormField(
+                      controller: _directorController,
+                      decoration: const InputDecoration(
+                        labelText: "Regista",
+                        labelStyle: TextStyle(
+                          fontFamily: 'Outfit',
+                          fontSize: 16,
+                          color: AppColors.bordeaux,
+                        ),
+                      ),
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Campo obbligatorio'
+                          : null,
+                    ),
+                    TextFormField(
+                      controller: _durationController,
+                      decoration: const InputDecoration(
+                        labelText: "Durata",
+                        labelStyle: TextStyle(
+                          fontFamily: 'Outfit',
+                          fontSize: 16,
+                          color: AppColors.bordeaux,
+                        ),
+                      ),
+                      keyboardType: TextInputType.number,
+                      validator: (value) =>
+                          value == null || int.tryParse(value) == null
+                          ? 'Campo obbligatorio'
+                          : null,
+                    ),
+                    TextFormField(
+                      controller: _plotController,
+                      decoration: const InputDecoration(
+                        labelText: "Trama",
+                        labelStyle: TextStyle(
+                          fontFamily: 'Outfit',
+                          fontSize: 16,
+                          color: AppColors.bordeaux,
+                        ),
+                      ),
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Campo obbligatorio'
+                          : null,
+                    ),
+                    TextFormField(
+                      controller: _yearController,
+                      decoration: const InputDecoration(
+                        labelText: "Anno",
+                        labelStyle: TextStyle(
+                          fontFamily: 'Outfit',
+                          fontSize: 16,
+                          color: AppColors.bordeaux,
+                        ),
+                      ),
+                      keyboardType: TextInputType.number,
+                      validator: (value) =>
+                          value == null || int.tryParse(value) == null
+                          ? 'Campo obbligatorio'
+                          : null,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Annulla',
+          style: TextStyle(
+            fontFamily: 'Outfit',
+            fontSize: 16,
+            color: AppColors.cream,
+          ),
+          ),
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.rose,
+            foregroundColor: AppColors.cream,
+          ),
+          onPressed: _submitForm,
+          child: const Text('Salva',
+          style: TextStyle(
+            fontFamily: 'Outfit',
+            fontSize: 16,
+            color: AppColors.cream,
+          ),
+          ),
+        ),
+      ],
+    );
   }
 }
