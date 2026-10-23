@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'components/movie_form_dialog.dart';
+
 import '../viewmodels/movie_view_model.dart';
 
 class HomeView extends StatelessWidget {
@@ -37,6 +39,14 @@ class HomeView extends StatelessWidget {
           }
           return const Text('sostituire con lista film');
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromRGBO(240, 41, 50, 1),
+        foregroundColor: Colors.white,
+        onPressed: () {
+          showDialog(context: context, builder: (_) => const MovieFormDialog());
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

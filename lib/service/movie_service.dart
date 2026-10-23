@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import '../Models/movie.dart';
+import '../models/movie.dart';
 import 'package:path_provider/path_provider.dart';
 
 
